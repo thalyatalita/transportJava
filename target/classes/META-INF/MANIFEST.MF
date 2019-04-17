@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: thalya
+Build-Jdk: 11.0.2
+Implementation-Title: server
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: br.com.server
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/server
+Created-By: Maven Integration for Eclipse
+

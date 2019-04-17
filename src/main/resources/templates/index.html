@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<title>Inicial</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h2>Bem-Vinda(o) ao Sistema</h2>
+	
+	<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-sm table-striped table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nome</th>
+							<th>Email</th>
+							<th>Telefone</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="contato : ${contatos}">
+							<td th:text="${contato.id}"></td>
+							<td th:text="${contato.nome}"></td>
+							<td th:text="${contato.email}"></td>
+							<td th:text="${contato.telefone}"></td>
+							<td>
+								<div class="btn-group pull-right">
+							   		<a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${contato.id})}">Editar</a>
+							   		<a class="delete btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${contato.id})}">Excluir</a>
+							   </div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="btn-group"> 
+				<a class="btn btn-sm btn-primary" href="/signup">Adicionar usuario</a>
+				<a class="btn btn-sm btn-danger" href="/">Página Inicial</a>
+			</div>
+</body>
+</html>
