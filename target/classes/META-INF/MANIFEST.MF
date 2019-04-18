@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Built-By: thalya
-Build-Jdk: 11.0.2
 Implementation-Title: server
 Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: murilio
 Implementation-Vendor-Id: br.com.server
-Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
- -starter-parent/server
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/server
 Created-By: Maven Integration for Eclipse
 
