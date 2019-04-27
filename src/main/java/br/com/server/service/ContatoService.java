@@ -17,10 +17,6 @@ public class ContatoService {
 		return repositoryContato.findAll();
 	}
 	
-	public Optional<Contato> findOne(Integer id) {
-		return repositoryContato.findById(id);
-	}
-	
 	public Contato save(Contato contato) {
 		return repositoryContato.saveAndFlush(contato);
 	}

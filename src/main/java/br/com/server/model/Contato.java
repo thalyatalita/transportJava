@@ -23,7 +23,7 @@ public class Contato implements Serializable {
 	private String email;
 	@Column
 	private String telefone;
-	
+
 	public Integer getId() {
 		return id;
 	}

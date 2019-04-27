@@ -1,70 +1,55 @@
 package br.com.server.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import br.com.server.model.Contato;
 import br.com.server.service.ContatoService;
 
-@Controller
+@RestController
+@RequestMapping("/contatos")
 public class ContatoController {
 	
 	@Autowired
 	private ContatoService service;
 	
-	@GetMapping("/")
-	public ModelAndView findAll() {
-		ModelAndView mv = new ModelAndView("index");
-		mv.addObject("contatos", service.findAll());
-		return mv;
+	@GetMapping("/all")
+	public List<Contato> findAll(){
+		return service.findAll();
 	}
 	
-	@GetMapping("/signup")
-    public ModelAndView FormCliente(Contato contato) {
-        ModelAndView mv = new ModelAndView("/addContato");
-        mv.addObject("contato", contato);
-		return mv;
-    }
-	
-	@PostMapping("/adduser")
-    public String addUser(Contato contato, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "addContato";
-        }
-         
-        service.save(contato);
-        model.addAttribute("contatos", service.findAll());
-        return "index";
-    }
-	
-	@GetMapping("/delete/{id}")
-	public ModelAndView delete(@PathVariable("id") Integer id) {
-		service.delete(id);
-		return findAll();
-	}
-	
-	@GetMapping("/edit/{id}")
-	public String showUpdateForm(@PathVariable("id") Integer id, Model model) {
-		Contato contato = service.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + id));
-	     
-	    model.addAttribute("contato", contato);
-	    return "editContato";
-	}
-	
-	@PostMapping("/update/{id}") 
-	public String edit(Contato contato, @PathVariable("id") Integer id, Model model, BindingResult result) { 
-		if (result.hasErrors()) {
-			contato.setId(id);
-	        return "editContato";
-	    }
+	@PostMapping("/save")
+	public ResponseEntity<?> save (@RequestBody Contato contato){
 		service.save(contato);
-		model.addAttribute("contatos", service.findAll());
-		return "index";
-		}	
+		return ResponseEntity.ok().body(contato);
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<?> find (@PathVariable Integer id){
+		Optional<Contato> contato = service.findById(id);
+		return ResponseEntity.ok().body(contato);
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable Integer id) {
+		service.delete(id);
+	}
+		
+	@PutMapping("/update")
+	public ResponseEntity<?> update (@RequestBody Contato contato){
+		service.save(contato);
+		return ResponseEntity.ok().body(contato);
+	}
+	
 }
