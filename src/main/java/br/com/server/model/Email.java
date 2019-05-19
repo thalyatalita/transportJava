@@ -19,15 +19,15 @@ public class Email implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column
-	private ArrayList< String > nome = new ArrayList<>();
+	private ArrayList< String > emails = new ArrayList<>();
 
 	public Email() {
 	}
 
-	public Email(Long id, ArrayList<String> nome) {
+	public Email(Long id, ArrayList<String> emails) {
 		super();
 		this.id = id;
-		this.nome = nome;
+		this.emails = emails;
 	}
 
 	public Long getId() {
@@ -38,12 +38,12 @@ public class Email implements Serializable {
 		this.id = id;
 	}
 
-	public ArrayList<String> getNome() {
-		return nome;
+	public ArrayList<String> getEmails() {
+		return emails;
 	}
 
-	public void setNome(ArrayList<String> nome) {
-		this.nome = nome;
+	public void setEmails(ArrayList<String> emails) {
+		this.emails = emails;
 	}
-
+	
 }

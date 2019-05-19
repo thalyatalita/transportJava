@@ -22,7 +22,10 @@ public class Contato implements Serializable {
 	@Column
 	private Email email;
 	@Column
-	private String telefone;
+	private Telefone telefone;
+
+	public Contato() {
+	}
 
 	public Long getId() {
 		return id;
@@ -48,11 +51,11 @@ public class Contato implements Serializable {
 		this.email = email;
 	}
 
-	public String getTelefone() {
+	public Telefone getTelefone() {
 		return telefone;
 	}
 
-	public void setTelefone(String telefone) {
+	public void setTelefone(Telefone telefone) {
 		this.telefone = telefone;
 	}
 	
