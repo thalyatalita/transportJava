@@ -16,19 +16,19 @@ public class Contato implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	@Column
 	private String nome;
 	@Column
-	private String email;
+	private Email email;
 	@Column
 	private String telefone;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -40,11 +40,11 @@ public class Contato implements Serializable {
 		this.nome = nome;
 	}
 
-	public String getEmail() {
+	public Email getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setEmail(Email email) {
 		this.email = email;
 	}
 

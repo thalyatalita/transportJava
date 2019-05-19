@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import br.com.server.model.Contato;
 import br.com.server.repository.ContatoRepository;
 @Service
@@ -21,11 +22,11 @@ public class ContatoService {
 		return repositoryContato.saveAndFlush(contato);
 	}
 	
-	public void delete(Integer id) {
+	public void delete(Long id) {
 		repositoryContato.deleteById(id);
 	}
 
-	public Optional<Contato> findById(Integer id) {
+	public Optional<Contato> findById(Long id) {
 		return repositoryContato.findById(id);
 	}
 }

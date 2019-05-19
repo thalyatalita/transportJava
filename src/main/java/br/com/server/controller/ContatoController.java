@@ -36,13 +36,13 @@ public class ContatoController {
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<?> find (@PathVariable Integer id){
+	public ResponseEntity<?> find (@PathVariable Long id){
 		Optional<Contato> contato = service.findById(id);
 		return ResponseEntity.ok().body(contato);
 	}
 	
 	@DeleteMapping("/delete/{id}")
-	public void delete(@PathVariable Integer id) {
+	public void delete(@PathVariable Long id) {
 		service.delete(id);
 	}
 		
