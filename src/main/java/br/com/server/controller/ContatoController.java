@@ -31,8 +31,11 @@ public class ContatoController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<?> save (@RequestBody Contato contato){
-		service.save(contato);
-		return ResponseEntity.ok().body(contato);
+		
+		Contato contatoSalvo = service.save(contato);
+		
+		return ResponseEntity.ok().body(contatoSalvo);
+	
 	}
 	
 	@GetMapping("/{id}")
