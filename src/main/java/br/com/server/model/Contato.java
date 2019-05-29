@@ -1,12 +1,17 @@
 package br.com.server.model;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +24,11 @@ public class Contato implements Serializable {
 	private Long id;
 	@Column
 	private String nome;
-	@Column
-	private Email email;
+	
+	@OneToMany(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "id_contato")
+	private List<Email> email;
+	
 	@Column
 	private Telefone telefone;
 
@@ -43,11 +51,11 @@ public class Contato implements Serializable {
 		this.nome = nome;
 	}
 
-	public Email getEmail() {
+	public List<Email> getEmail() {
 		return email;
 	}
 
-	public void setEmail(Email email) {
+	public void setEmail(List<Email> email) {
 		this.email = email;
 	}
 
