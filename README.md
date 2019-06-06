@@ -9,7 +9,7 @@
 #### &nbsp; Method GET 
 
 ```
-http://localhost:8080/server/contatos/all
+http://localhost:8080/contatos/all
 ```
 
 #### &nbsp; Method GET BY ID
