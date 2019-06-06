@@ -15,13 +15,13 @@ http://localhost:8080/server/contatos/all
 #### &nbsp; Method GET BY ID
 
 ```
-http://localhost:8080/server/contatos/{id}
+http://localhost:8080/contatos/{id}
 ```
 
 #### &nbsp; Method POST
 
 ```
-http://localhost:8080/server/contatos/save
+http://localhost:8080/contatos/save
 
 
 {
@@ -33,10 +33,7 @@ http://localhost:8080/server/contatos/save
     { 
       "nomeEmail": "digite o e-mail"
     }
-  ],
-  "telefone":{
-    "telefones":"your number"
-  }
+  ]
 }
 
 ```
@@ -44,13 +41,13 @@ http://localhost:8080/server/contatos/save
 #### &nbsp; Method DELETE BY ID
 
 ```
-http://localhost:8080/server/contatos/delete/{id}
+http://localhost:8080/contatos/delete/{id}
 ```
 
 #### &nbsp; Method UPDATE 
 
 ```
-http://localhost:8080/server/contatos/update
+http://localhost:8080/contatos/update
 
 
 {
@@ -63,10 +60,7 @@ http://localhost:8080/server/contatos/update
     { 
       "nomeEmail": "digite o e-mail"
     }
-  ],
-  "telefone":{
-    "telefones":"your number"
-  }
+  ]
 }
 
 ```
